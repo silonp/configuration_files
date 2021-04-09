@@ -1,7 +1,7 @@
 # Configuration files to miscellaneous tools I use.
 
 ## Vim
-Contains `.vimrc` and `.vim` directory.
+Contains file `.vimrc` and `.vim` directory.
 
 ## Tmux
 
