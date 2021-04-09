@@ -5,6 +5,7 @@ Hiddned files does not have the `.` prefix for easier navigation.
 
 ## Tmux
 Use `bin/tmux_start` script to start or attach to session.
-Install `ln -s ~/configuration_files/tmux/tmux.conf ~/.tmux.conf`.
+ - Linux `ln -s ~/configuration_files/tmux/tmux.conf ~/.tmux.conf`
+ - Cygwin/MSYS2 `cmd //c 'mklink %HOME%/.tmux.conf %HOME%/configuration_files/tmux/tmux.conf'`
 
 ## Bash
