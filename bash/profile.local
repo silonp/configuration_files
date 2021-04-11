@@ -1,0 +1,46 @@
+#!/bin/bash
+
+if [ -z "$PS1" ]; then
+    # Non-interactive shell - exit.
+    exit 0
+fi
+
+trace=1
+
+# List all possible GIT installations.
+git_dirs=(
+    /usr/share/git
+    $HOME/git
+)
+
+# Git completion.
+git_prompt=0
+
+source_git_files () {
+    if [ -f "$1/git-completion.bash" ]; then
+        . $1/git-completion.bash
+    fi
+
+    if [ -f "$1/git-prompt.sh" ]; then
+        . $1/git-prompt.sh
+        git_prompt=1
+    fi
+}
+
+for git_dir in "${git_dirs[@]}"; do
+    if [ -d "$git_dir/completion" ]; then
+        source_git_files "$git_dir/completion"
+        if [ $git_prompt ]; then
+            [ $trace ] && echo "Found GIT files @ $git_dir/completion"
+            break
+        fi
+    fi
+
+    source_git_files $git_dir
+    if [ $git_prompt ]; then
+        [ $trace ] && echo "Found GIT files @ $git_dir"
+        break
+    fi
+done
+
+
