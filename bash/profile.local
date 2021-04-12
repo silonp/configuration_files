@@ -1,46 +1,124 @@
 #!/bin/bash
 
+# Non-interactive shell - exit.
 if [ -z "$PS1" ]; then
-    # Non-interactive shell - exit.
     exit 0
 fi
 
-trace=1
+# Check the window size after each command.
+# Update the values of LINES and COLUMNS.
+shopt -s checkwinsize
+
+TRACE=0
 
 # List all possible GIT installations.
-git_dirs=(
+# First will be used.
+GIT_DIRS=(
     /usr/share/git
     $HOME/git
 )
 
-# Git completion.
-git_prompt=0
+GIT_PROMPT=0
 
-source_git_files () {
+load_git_files () {
     if [ -f "$1/git-completion.bash" ]; then
         . $1/git-completion.bash
     fi
 
     if [ -f "$1/git-prompt.sh" ]; then
         . $1/git-prompt.sh
-        git_prompt=1
+        GIT_PROMPT=1
     fi
 }
 
-for git_dir in "${git_dirs[@]}"; do
-    if [ -d "$git_dir/completion" ]; then
-        source_git_files "$git_dir/completion"
-        if [ $git_prompt ]; then
-            [ $trace ] && echo "Found GIT files @ $git_dir/completion"
+for GIT_DIR in "${GIT_DIRS[@]}"; do
+    if [ -d "$GIT_DIR/completion" ]; then
+        load_git_files "$GIT_DIR/completion"
+        if [ $GIT_PROMPT ]; then
+            [ $TRACE == 1 ] && echo "Found GIT files @ '$GIT_DIR/completion'."
             break
         fi
     fi
 
-    source_git_files $git_dir
-    if [ $git_prompt ]; then
-        [ $trace ] && echo "Found GIT files @ $git_dir"
+    load_git_files $GIT_DIR
+    if [ $GIT_PROMPT ]; then
+        [ $TRACE == 1 ] && echo "Found GIT files @ '$GIT_DIR'."
         break
     fi
 done
 
+COLOR_OFF="\[\033[0m\]"
 
+BLACK="\[\033[0;30m\]"
+BLUE="\[\033[0;34m\]"
+CYAN="\[\033[0;36m\]"
+GREEN="\[\033[0;32m\]"
+PURPLE="\[\033[0;35m\]"
+RED="\[\033[0;31m\]"
+WHITE="\[\033[0;37m\]"
+YELLOW="\[\033[0;33m\]"
+
+INTENSIVE_BLACK="\[\033[0;90m\]"
+INTENSIVE_BLUE="\[\033[0;94m\]"
+INTENSIVE_CYAN="\[\033[0;96m\]"
+INTENSIVE_GREEN="\[\033[0;92m\]"
+INTENSIVE_PURPLE="\[\033[0;95m\]"
+INTENSIVE_RED="\[\033[0;91m\]"
+INTENSIVE_WHITE="\[\033[0;97m\]"
+INTENSIVE_YELLOW="\[\033[0;93m\]"
+
+# PS1
+if [ $GIT_PROMPT ]; then
+    GIT_PS1_SHOWCOLORHINTS=true
+    GIT_PS1_SHOWDIRTYSTATE=true
+    GIT_PS1_UNTRACKEDFILES=true
+    PS1=$INTENSIVE_CYAN'\w'$PURPLE'`__git_ps1`'$COLOR_OFF'\$ '
+else
+    PS1=$INTENSIVE_CYAN'\w'$COLOR_OFF'\$ '
+fi
+
+# GIT Aliases:
+if [ $GIT_PROMPT ]; then
+    git config --global alias.lg \
+        "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%C(bold blue) (%an)%Creset' --abbrev-commit"
+fi
+
+# PATH
+case $PATH in
+    *"$HOME/bin"*)
+        [ $TRACE == 1 ] && echo "'$HOME/bin' already in PATH."
+        ;;
+
+    *)
+        PATH=$PATH:$HOME/bin
+        ;;
+esac
+
+case $PATH in
+    *"$HOME/configuration_files/tmux/bin"*)
+        [ $TRACE == 1 ] && echo "'$HOME/configuration_files/tmux/bin' already in PATH."
+        ;;
+
+    *)
+        PATH=$PATH:$HOME/configuration_files/tmux/bin
+        ;;
+esac
+
+# Aliases:
+alias df='df -h'
+alias du='du -hs'
+
+alias grep='grep --color'
+alias egrep='egrep --color=auto'
+alias fgrep='fgrep --color=auto'
+
+alias ls='ls -hF --color=auto'
+alias ll='ls -l'
+alias la='ls -lA'
+
+if [ -f "$HOME/.bash_functions" ]; then
+    . "$HOME/.bash_functions"
+    [ $TRACE == 1 ] && echo "'$HOME/.bash_functions' found and loaded."
+fi
+
+#EoF
