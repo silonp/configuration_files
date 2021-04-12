@@ -18,7 +18,7 @@ execute `~/.profile` or `~/.bash_profile` which (almost) always call `~/.bashrc`
 
 or in your current `~/.bashrc`
 ```bash
-if [ -f "~/configuration_files/bash/bashrc.local" ]; then
-    . ~/configuration_files/bash/bashrc.local
+if [ -f "$HOME/configuration_files/bash/bashrc.local" ]; then
+    . $HOME/configuration_files/bash/bashrc.local
 fi
 ```
