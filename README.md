@@ -13,12 +13,12 @@ Use `tmux_start` script to start or attach to the session.
 Non-login shells execute `~/.bashrc` where login shells
 execute `~/.profile` or `~/.bash_profile` which (almost) always call `~/.bashrc`.
 
- * Linux `ln -s ~/configuration_files/bash/bash.local ~/.bashrc`
+ * Linux `ln -s ~/configuration_files/bash/bashrc.local ~/.bashrc`
  * Cygwin/MSYS2 `cmd //c 'mklink %HOME%/.bashrc.local %HOME%/configuration_files/bash/bashrc.local'`
 
 or in your current `~/.bashrc`
 ```bash
-if [ -f "~/configuration_files/bash/bash.local" ]; then
-    . ~/configuration_files/bash/bash.local
+if [ -f "~/configuration_files/bash/bashrc.local" ]; then
+    . ~/configuration_files/bash/bashrc.local
 fi
 ```
