@@ -34,14 +34,14 @@ load_git_files () {
 for GIT_DIR in "${GIT_DIRS[@]}"; do
     if [ -d "$GIT_DIR/completion" ]; then
         load_git_files "$GIT_DIR/completion"
-        if [ $GIT_PROMPT ]; then
+        if [ $GIT_PROMPT == 1 ]; then
             [ $TRACE == 1 ] && echo "Found GIT files @ '$GIT_DIR/completion'."
             break
         fi
     fi
 
     load_git_files $GIT_DIR
-    if [ $GIT_PROMPT ]; then
+    if [ $GIT_PROMPT == 1 ]; then
         [ $TRACE == 1 ] && echo "Found GIT files @ '$GIT_DIR'."
         break
     fi
