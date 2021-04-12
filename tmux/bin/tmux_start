@@ -18,6 +18,7 @@ else
     tmux neww -n 'Work-4' -c $HOME
     tmux selectp -t 4
     tmux splitw -v -p 50 -c $HOME
+    tmux selectw -t 1
     tmux attach-session -t $SESSION
 fi
 

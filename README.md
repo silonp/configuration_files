@@ -9,11 +9,15 @@ Use `tmux_start` script to start or attach to the session.
  * Cygwin/MSYS2 `cmd //c 'mklink %HOME%/.tmux.conf %HOME%/configuration_files/tmux/tmux.conf'`
 
 ## Bash
-If `~/.bash_profile` is present `~/.profile` is not executed. Place this code respectively.
+Non-login shells execute `~/.bashrc` where login shells
+execute `~/.profile` or `~/.bash_profile` which usually call `~/.bashrc`.
+
+ * Linux `ln -s ~/configuration_files/bash/bash.local ~/.bashrc`
+ * Cygwin/MSYS2 `cmd //c 'mklink %HOME%/.bashrc.local %HOME%/configuration_files/bash/bashrc.local'`
+
+or in your current `~/.bashrc`
 ```bash
-if [ -f "$HOME/.profile.local" ]; then
-    . $HOME/.profile.local
+if [ -f "~/configuration_files/bash/bash.local" ]; then
+    . ~/configuration_files/bash/bash.local
 fi
 ```
- * Linux `ln -s ~/configuration_files/bash/profile.local ~/.profile.local`
- * Cygwin/MSYS2 `cmd //c 'mklink %HOME%/.profile.local %HOME%/configuration_files/bash/profile.local'`

@@ -81,6 +81,9 @@ fi
 if [ $GIT_PROMPT ]; then
     git config --global alias.lg \
         "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%C(bold blue) (%an)%Creset' --abbrev-commit"
+            git config --global alias.ci "commit"
+            git config --global alias.co "checkout"
+            git config --global alias.st "status"
 fi
 
 # PATH
@@ -115,6 +118,8 @@ alias fgrep='fgrep --color=auto'
 alias ls='ls -hF --color=auto'
 alias ll='ls -l'
 alias la='ls -lA'
+
+alias tmux_end="tmux kill-server"
 
 if [ -f "$HOME/.bash_functions" ]; then
     . "$HOME/.bash_functions"
