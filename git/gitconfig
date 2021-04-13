@@ -22,5 +22,5 @@
 
 [core]
     editor = vim
-    ; Don't honor 'x' bit in files (since I also use MSYS2).
+    ; Don't honour 'x' bit in files (since I also use MSYS2).
     filemode = false

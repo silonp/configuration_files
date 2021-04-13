@@ -20,7 +20,7 @@ GIT_DIRS=(
 
 GIT_PROMPT=0
 
-load_git_files () {
+load_GIT_files () {
     if [ -f "$1/git-completion.bash" ]; then
         . $1/git-completion.bash
     fi
@@ -33,14 +33,14 @@ load_git_files () {
 
 for GIT_DIR in "${GIT_DIRS[@]}"; do
     if [ -d "$GIT_DIR/completion" ]; then
-        load_git_files "$GIT_DIR/completion"
+        load_GIT_files "$GIT_DIR/completion"
         if [ $GIT_PROMPT == 1 ]; then
             [ $TRACE == 1 ] && echo "Found GIT files @ '$GIT_DIR/completion'."
             break
         fi
     fi
 
-    load_git_files $GIT_DIR
+    load_GIT_files $GIT_DIR
     if [ $GIT_PROMPT == 1 ]; then
         [ $TRACE == 1 ] && echo "Found GIT files @ '$GIT_DIR'."
         break
@@ -110,8 +110,22 @@ alias ls='ls -hF --color=auto'
 alias ll='ls -l'
 alias la='ls -lA'
 
-alias tmux_end="tmux kill-server"
+alias tmux_end='tmux kill-server'
 
+# Functions:
+find_file () {
+    find . -name "$1" -type f
+}
+
+find_dir () {
+    find . -name "$1" -type d
+}
+
+find_text() {
+    grep -R "$1" .
+}
+
+# Extra functions:
 if [ -f "$HOME/.bash_functions" ]; then
     . "$HOME/.bash_functions"
     [ $TRACE == 1 ] && echo "'$HOME/.bash_functions' found and loaded."
