@@ -68,7 +68,7 @@ INTENSIVE_WHITE="\[\033[0;97m\]"
 INTENSIVE_YELLOW="\[\033[0;93m\]"
 
 # PS1
-if [ $GIT_PROMPT ]; then
+if [ $GIT_PROMPT == 1 ]; then
     GIT_PS1_SHOWCOLORHINTS=true
     GIT_PS1_SHOWDIRTYSTATE=true
     GIT_PS1_UNTRACKEDFILES=true
@@ -78,7 +78,7 @@ else
 fi
 
 # GIT Aliases:
-if [ $GIT_PROMPT ]; then
+if [ $GIT_PROMPT == 1 ]; then
     git config --global alias.lg \
         "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%C(bold blue) (%an)%Creset' --abbrev-commit"
             git config --global alias.ci "commit"
