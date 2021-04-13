@@ -22,3 +22,8 @@ if [ -f "$HOME/configuration_files/bash/bashrc.local" ]; then
     . $HOME/configuration_files/bash/bashrc.local
 fi
 ```
+## Git
+Global git configuration.
+
+ * Linux `ln -s ~/configuration_files/git/gitconfig ~/.gitconfig`
+ * Cygwin/MSYS2 `cmd //c 'mklink %HOME%/.gitconfig %HOME%/configuration_files/git/gitconfig'`

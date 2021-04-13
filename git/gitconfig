@@ -1,0 +1,26 @@
+[user]
+    name = Peter Šilon
+    email = Silon.Peter@gmail.com
+
+[color]
+    diff = auto
+    status = auto
+    branch = auto
+    showbranch = auto
+    ui = true
+    filemode = false
+
+[alias]
+    ci = commit
+    co = checkout
+    lg = log --color \
+             --graph \
+             --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%C(bold blue) (%an)%Creset' \
+             --abbrev-commit
+    df = diff
+    st = status
+
+[core]
+    editor = vim
+    ; Don't honor 'x' bit in files (since I also use MSYS2).
+    filemode = false
