@@ -22,7 +22,7 @@
 
 [core]
     editor = vim
-    ; Don't honour 'x' bit in files (since I also use MSYS2).
+    ; Don't honour the 'x' bit in files (since I also use MSYS2).
     filemode = false
 
 [gitflow "branch"]
@@ -36,3 +36,6 @@
     support = support/
     ; No tag prefix.
     versiontag =
+
+[submodule]
+    recurse = true
