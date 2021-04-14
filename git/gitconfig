@@ -24,3 +24,15 @@
     editor = vim
     ; Don't honour 'x' bit in files (since I also use MSYS2).
     filemode = false
+
+[gitflow "branch"]
+    master = master
+    develop = dunfell
+
+[gitflow "prefix"]
+    feature = feature/
+    release = release/
+    hotfix = hotfix/
+    support = support/
+    ; No tag prefix.
+    versiontag =
