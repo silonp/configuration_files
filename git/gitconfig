@@ -25,6 +25,10 @@
     ; Don't honour the 'x' bit in files (since I also use MSYS2).
     filemode = false
 
+[push]
+    ; Use current branch name if none given for push.
+    default = current
+
 [gitflow "branch"]
     master = master
     develop = dunfell
