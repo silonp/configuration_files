@@ -2,7 +2,7 @@
 Hiddned files do not have the `.` prefix for easier navigation.
 
 ## Vim
-Vim plugins are added as git submodules. E.g:
+Vim plugins are added as git submodules. E.g. NERDTree:
 
 `git submodule add git@github.com:preservim/nerdtree.git vim/vim/pack/NERDTree/start/NERDTree`
 
