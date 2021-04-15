@@ -7,8 +7,8 @@ Vim plugins are added as git submodules. E.g. NERDTree:
 `git submodule add git@github.com:preservim/nerdtree.git vim/vim/pack/NERDTree/start/NERDTree`
 
  * Linux `ln -s ~/configuration_files/vim/vim ~/.vim` and `ln -s ~/configuration_files/vim/vimrc ~/.vimrc`
- * Cygwin/MSYS2 `TODO`
-     
+ * Cygwin/MSYS2 `TBD`
+
 ## Tmux
 Use `tmux_start` script to start or attach to the session. Use `tmux_end` to destory the session.
 
