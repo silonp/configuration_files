@@ -2,7 +2,13 @@
 Hiddned files do not have the `.` prefix for easier navigation.
 
 ## Vim
+Vim plugins are added as git submodules. E.g:
 
+`git submodule add git@github.com:preservim/nerdtree.git vim/vim/pack/NERDTree/start/NERDTree`
+
+ * Linux `ln -s ~/configuration_files/vim/vim ~/.vim` and `ln -s ~/configuration_files/vim/vimrc ~/.vimrc`
+ * Cygwin/MSYS2 `TODO`
+     
 ## Tmux
 Use `tmux_start` script to start or attach to the session. Use `tmux_end` to destory the session.
 
@@ -27,5 +33,3 @@ Global git configuration.
 
  * Linux `ln -s ~/configuration_files/git/gitconfig ~/.gitconfig`
  * Cygwin/MSYS2 `cmd //c 'mklink %HOME%\.gitconfig %HOME%\configuration_files\git\gitconfig'`
-git submodule add git@github.com:preservim/nerdtree.git vim/vim/pack/NERDTree/start/NERDTree
-ln -s configuration_files/vim/vim .vim
