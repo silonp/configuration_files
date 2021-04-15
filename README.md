@@ -27,3 +27,5 @@ Global git configuration.
 
  * Linux `ln -s ~/configuration_files/git/gitconfig ~/.gitconfig`
  * Cygwin/MSYS2 `cmd //c 'mklink %HOME%\.gitconfig %HOME%\configuration_files\git\gitconfig'`
+git submodule add git@github.com:preservim/nerdtree.git vim/vim/pack/NERDTree/start/NERDTree
+ln -s configuration_files/vim/vim .vim

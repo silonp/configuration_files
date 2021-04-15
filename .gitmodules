@@ -1,0 +1,6 @@
+[submodule "vim/vim/pack/NERDTree/start/NERDTree"]
+	path = vim/vim/pack/NERDTree/start/NERDTree
+	url = git@github.com:preservim/nerdtree.git
+[submodule "vim/vim/pack/vim-bitbake/start/vim-bitbake"]
+	path = vim/vim/pack/vim-bitbake/start/vim-bitbake
+	url = git@github.com:kergoth/vim-bitbake.git
