@@ -126,9 +126,18 @@ set incsearch
 set ignorecase
 set smartcase
 
-" Show paired brace for 3 seconds
+" Show paired brace for 10 seconds
 set showmatch
-set matchtime=3
+set matchtime=1
+
+" All sub-directories when searching (:find)
+set path+=**
+
+" Menu ON
+set wildmenu
+
+" Don't look into build directories
+set wildignore+=**/build/**
 
 " Clear search
 map <leader><space> :let @/=''<cr>
