@@ -8,8 +8,12 @@ Vim plugins are added as git submodules. E.g. NERDTree:
 
 After cloning don't forget `git submodule init` followed by `git submodule update`.
     
- * Linux `ln -s ~/configuration_files/vim/vim ~/.vim` and `ln -s ~/configuration_files/vim/vimrc ~/.vimrc`
- * Cygwin/MSYS2 `cmd //c 'mklink /D %HOME%\.vim %HOME%\configuration_files\vim\vim'` and `cmd c// 'mklink %HOME%\.vimrc %HOME%\configuration_files\vim\vimrc'`
+ * Linux
+    * `ln -s ~/configuration_files/vim/vim ~/.vim`
+    * `ln -s ~/configuration_files/vim/vimrc ~/.vimrc`
+ * Cygwin/MSYS2
+    * `cmd //c 'mklink /D %HOME%\.vim %HOME%\configuration_files\vim\vim'`
+    * `cmd //c 'mklink %HOME%\.vimrc %HOME%\configuration_files\vim\vimrc'`
 
 ## Tmux
 Use `tmux_start` script to start or attach to the session. Use `tmux_end` to destory the session.
