@@ -21,16 +21,13 @@ set modelines=0
 " Show line numbers
 set number
 
-" Show file stats
-set ruler
-
 " Visualbell OFF
 set t_vb=
 
 " Encoding
 set encoding=utf-8
 
-" Whitespace
+" Do not wrap lines
 set nowrap
 
 " Use full width of a screen
@@ -54,7 +51,7 @@ set expandtab
 " Round the indentation to the nearest multiple of “shiftwidth”
 set noshiftround
 
-" Offset lines UP and DOWN when searchong
+" Offset lines UP and DOWN when searching
 set scrolloff=10
 
 " Allow backspacing over indention, line breaks and insertion start
@@ -103,9 +100,11 @@ set statusline+=\ %3l:%-2c\                 " Line + Column
 set statusline+=%#Cursor#                   " Colour
 set statusline+=\ %3p%%\                    " Percentage
 
-" Show mode and command on last line
-set showmode
+" Show command on last line
 set showcmd
+
+" Don't show mode on last line
+set noshowmode
 
 " User <ESC> mappings
 set timeoutlen=1000
@@ -143,31 +142,21 @@ vnoremap <F1> :set invfullscreen<CR>
 set listchars=tab:▸\ ,eol:¬
 map <leader>n :set list!<CR>
 
-" END and HOME keys
+" END and HOME keys (all modes)
 map <esc>[H <home>
 map <esc>[F <end>
-
-imap <esc>[H <home>
-imap <esc>[F <end>
-
-cmap <esc>[H <home>
-cmap <esc>[F <end>
 
 " Color scheme
 set background=dark
 colorscheme gruvbox
-
-" Remove all trailing whitespace by pressing F2 in NORMAL mode
-nnoremap <F2> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>
 
 " Toggle NERDTree on F3
 " In NERDTree:
 "   t = open in new tab
 "   s = open in new vertical split
 nnoremap <F3> :NERDTreeToggle<CR>
-inoremap <F3> :NERDTreeToggle<CR>
 
-" <leader>+N for tab selection
+" <leader>+N for tab selection (all modes)
 noremap <leader>1 1gt
 noremap <leader>2 2gt
 noremap <leader>3 3gt
@@ -177,3 +166,17 @@ noremap <leader>6 6gt
 noremap <leader>7 7gt
 noremap <leader>8 8gt
 noremap <leader>9 9gt
+
+" Save the cursor position and resore last searched strin (@/)
+function! <SID>StripTrailingWhitespaces()
+    let _s=@/
+    let l = line(".")
+    let c = col(".")
+    " e = No error if not matched
+    %s/\s\+$//e
+    let @/=_s
+    call cursor(l, c)
+endfunction
+
+" Delete trailing whitespaces on F2
+nnoremap <silent> <F2> :call <SID>StripTrailingWhitespaces()<CR>
