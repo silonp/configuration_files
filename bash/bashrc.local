@@ -5,6 +5,8 @@ if [ -z "$PS1" ]; then
     exit 0
 fi
 
+TERM=xterm-256color
+
 # Check the window size after each command.
 # Update the values of LINES and COLUMNS.
 shopt -s checkwinsize
