@@ -144,12 +144,14 @@ set listchars=tab:▸\ ,eol:¬
 map <leader>n :set list!<CR>
 
 " END and HOME keys
-map <esc>[H <HOME>
-map <esc>[F <HOME>
-imap <esc>[H <HOME>
-imap <esc>[F <HOME>
-cmap <esc>[H <HOME>
-cmap <esc>[F <HOME>
+map <esc>[H <home>
+map <esc>[F <end>
+
+imap <esc>[H <home>
+imap <esc>[F <end>
+
+cmap <esc>[H <home>
+cmap <esc>[F <end>
 
 " Color scheme
 set background=dark
