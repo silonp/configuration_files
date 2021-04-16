@@ -4,7 +4,7 @@ set nocompatible
 " Helps force plugins to load correctly when it is turned back on below
 filetype off
 
-" TODO: Load pluagins here (pathogen or vundle)
+" Load pluagins here (pathogen or vundle)
 
 " Turn on syntax highlighting
 syntax on
@@ -12,10 +12,10 @@ syntax on
 " For plugins to load correctly
 filetype plugin indent on
 
-" TODO: Pick a leader key
-" let mapleader = ","
+" Pick a leader key
+let mapleader = "\\"
 
-" Security
+" No modeline at the end of the file (ts=4 ...)
 set modelines=0
 
 " Show line numbers
@@ -24,73 +24,133 @@ set number
 " Show file stats
 set ruler
 
-" Visualbell OFF 
+" Visualbell OFF
 set t_vb=
 
 " Encoding
 set encoding=utf-8
 
 " Whitespace
-set wrap
-set textwidth=79
-set formatoptions=tcqrn1
-set tabstop=2
-set shiftwidth=2
-set softtabstop=2
+set nowrap
+
+" Use full width of a screen
+set textwidth=0
+
+" Format t=text c=comment q=paragraph(with gq)
+set formatoptions=tcq
+
+" Width of a <TAB>
+set tabstop=4
+
+" Auto-indent width
+set shiftwidth=4
+
+" Width on <TAB> <BS> press
+set softtabstop=4
+
+" Spaces for <TAB>
 set expandtab
+
+" Round the indentation to the nearest multiple of “shiftwidth”
 set noshiftround
 
-" Cursor motion
-set scrolloff=3
-set backspace=indent,eol,start
-set matchpairs+=<:> " use % to jump between pairs
-runtime! macros/matchit.vim
+" Offset lines UP and DOWN when searchong
+set scrolloff=10
 
-" Move up/down editor lines
+" Allow backspacing over indention, line breaks and insertion start
+set backspace=indent,eol,start
+
+" Disable swap files
+set noswapfile
+
+" Add < and > to pair tags, use % to jump b/w
+set matchpairs+=<:>
+
+" Follow the text lines not physical lines
 nnoremap j gj
 nnoremap k gk
 
-" Allow hidden buffers
-set hidden
-
-" Rendering
+" Fast terminal
 set ttyfast
 
-" Status bar
+" Mouse in all modes
+set mouse=a
+
+" Always show status line
 set laststatus=2
 
-" Last line
+" Status line
+set statusline=
+set statusline+=%#DiffAdd#%{(mode()=='n')?'\ \ NORMAL\ ':''}
+set statusline+=%#DiffChange#%{(mode()=='i')?'\ \ INSERT\ ':''}
+set statusline+=%#DiffDelete#%{(mode()=='r')?'\ \ RPLACE\ ':''}
+set statusline+=%#Cursor#%{(mode()=='v')?'\ \ VISUAL\ ':''}
+set statusline+=\ %n\                       " Buffer number
+set statusline+=%#Visual#                   " Colour
+set statusline+=%{&paste?'\ PASTE\ ':''}
+set statusline+=%{&spell?'\ SPELL\ ':''}
+set statusline+=%#CursorIM#                 " Colour
+set statusline+=%R                          " Readonly flag
+set statusline+=%M                          " Modified [+] flag
+set statusline+=%#Cursor#                   " Colour
+set statusline+=%#CursorLine#               " Colour
+set statusline+=\ %f\                       " File name
+set statusline+=%=                          " Right align
+set statusline+=%#CursorLine#               " Colour
+set statusline+=\ %Y\                       " File type
+set statusline+=%#CursorIM#                 " Colour
+set statusline+=\ %3l:%-2c\                 " Line + Column
+set statusline+=%#Cursor#                   " Colour
+set statusline+=\ %3p%%\                    " Percentage
+
+" Show mode and command on last line
 set showmode
 set showcmd
 
-" Searching
+" User <ESC> mappings
+set timeoutlen=1000
+
+" Escape sequences
+set ttimeoutlen=10
+
+" \v - very magic i.e. allow regex search
 nnoremap / /\v
 vnoremap / /\v
+
+" All search is highlighted
 set hlsearch
+
+" Highlight search as typing
 set incsearch
+
+" Ignore case unless uppercase letter is typed (smartcase)
 set ignorecase
 set smartcase
-set showmatch
-map <leader><space> :let @/=''<cr> " clear search
 
-" Remap help key.
+" Show paired brace for 3 seconds
+set showmatch
+set matchtime=3
+
+" Clear search
+map <leader><space> :let @/=''<cr>
+
+" Remap help key
 inoremap <F1> <ESC>:set invfullscreen<CR>a
 nnoremap <F1> :set invfullscreen<CR>
 vnoremap <F1> :set invfullscreen<CR>
 
-" Textmate holdouts
-
-" Formatting
-map <leader>q gqip
-
-" Visualize tabs and newlines
+" Visualize tabs and newlines with <leader>n
 set listchars=tab:▸\ ,eol:¬
-" Uncomment this to enable by default:
-" set list " To enable by default
-" Or use your leader key + l to toggle on/off
-map <leader>l :set list!<CR> " Toggle tabs and EOL
+map <leader>n :set list!<CR>
 
-" Color scheme (terminal)
-set t_Co=256
+" END and HOME keys
+map <esc>[H <HOME>
+map <esc>[F <HOME>
+imap <esc>[H <HOME>
+imap <esc>[F <HOME>
+cmap <esc>[H <HOME>
+cmap <esc>[F <HOME>
+
+" Color scheme
 set background=dark
-autocmd vimenter * ++nested colorscheme gruvbox
+colorscheme gruvbox
