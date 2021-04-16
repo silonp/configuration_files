@@ -7,7 +7,7 @@ Vim plugins are added as git submodules. E.g. NERDTree:
 `git submodule add git@github.com:preservim/nerdtree.git vim/vim/pack/NERDTree/start/NERDTree`
 
 After cloning don't forget `git submodule init` followed by `git submodule update`.
-    
+
  * Linux
     * `ln -s ~/configuration_files/vim/vim ~/.vim`
     * `ln -s ~/configuration_files/vim/vimrc ~/.vimrc`
