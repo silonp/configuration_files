@@ -13,7 +13,7 @@ syntax on
 filetype plugin indent on
 
 " Pick a leader key
-let mapleader = "\\"
+let mapleader="\\"
 
 " No modeline at the end of the file (ts=4 ...)
 set modelines=0
@@ -106,10 +106,10 @@ set showcmd
 " Don't show mode on last line
 set noshowmode
 
-" User <ESC> mappings
+" User mappings timeout (e.g. <leader><X>)
 set timeoutlen=1000
 
-" Escape sequences
+" Escape sequences timeout (check with TMUX escape-time option)
 set ttimeoutlen=10
 
 " \v - very magic i.e. allow regex search
@@ -139,15 +139,13 @@ set wildmenu
 " Don't look into build directories
 set wildignore+=**/build/**
 
+" Default to not read-only in vimdiff
+set noro
+
 " Clear search
-map <leader><space> :let @/=''<cr>
+map <leader><space> :let @/=''<CR>
 
-" Remap help key
-inoremap <F1> <ESC>:set invfullscreen<CR>a
-nnoremap <F1> :set invfullscreen<CR>
-vnoremap <F1> :set invfullscreen<CR>
-
-" Visualize tabs and newlines with <leader>n
+" Visualize tabs(.) and eol(¬) with <leader>n
 set listchars=tab:▸\ ,eol:¬
 map <leader>n :set list!<CR>
 

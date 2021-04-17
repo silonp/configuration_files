@@ -50,24 +50,8 @@ for GIT_DIR in "${GIT_DIRS[@]}"; do
 done
 
 COLOR_OFF="\[\033[0m\]"
-
-BLACK="\[\033[0;30m\]"
-BLUE="\[\033[0;34m\]"
-CYAN="\[\033[0;36m\]"
-GREEN="\[\033[0;32m\]"
-PURPLE="\[\033[0;35m\]"
-RED="\[\033[0;31m\]"
-WHITE="\[\033[0;37m\]"
-YELLOW="\[\033[0;33m\]"
-
-INTENSIVE_BLACK="\[\033[0;90m\]"
-INTENSIVE_BLUE="\[\033[0;94m\]"
-INTENSIVE_CYAN="\[\033[0;96m\]"
-INTENSIVE_GREEN="\[\033[0;92m\]"
-INTENSIVE_PURPLE="\[\033[0;95m\]"
-INTENSIVE_RED="\[\033[0;91m\]"
-INTENSIVE_WHITE="\[\033[0;97m\]"
-INTENSIVE_YELLOW="\[\033[0;93m\]"
+COLOR_PWD="\[\033[38;5;230m\]"
+COLOR_GIT="\[\033[38;5;166m\]"
 
 # PS1
 if [ $GIT_PROMPT == 1 ]; then
@@ -75,9 +59,9 @@ if [ $GIT_PROMPT == 1 ]; then
     GIT_PS1_SHOWUNTRACKEDFILES=1
     GIT_PS1_SHOWCOLORHINTS=true
 
-    PS1=$INTENSIVE_CYAN'\w'$INTENSIVE_PURPLE'`__git_ps1`'$COLOR_OFF'\$ '
+    PS1=$COLOR_PWD'\w'$COLOR_GIT'`__git_ps1`'$COLOR_OFF'\$ '
 else
-    PS1=$INTENSIVE_CYAN'\w'$COLOR_OFF'\$ '
+    PS1=$COLOR_PWD'\w'$COLOR_OFF'\$ '
 fi
 
 # PATH
