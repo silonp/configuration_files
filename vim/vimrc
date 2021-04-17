@@ -1,82 +1,82 @@
-" Don't try to be vi compatible
+" Don't try to be vi compatible.
 set nocompatible
 
-" Helps force plugins to load correctly when it is turned back on below
+" Helps force plugins to load correctly when it is turned back on below.
 filetype off
 
-" Load plugins here (pathogen or vundle)
+" Load plugins here [VIM < 8] (pathogen or vundle):
 
-" Turn on syntax highlighting
+" Turn on syntax highlighting.
 syntax on
 
-" For plugins to load correctly
+" For plugins to load correctly.
 filetype plugin indent on
 
-" Pick a leader key
+" Pick a leader key.
 let mapleader="\\"
 
-" No modeline at the end of the file (ts=4 ...)
+" No modeline at the end of the file (ts=4 ...).
 set modelines=0
 
-" Show line numbers
+" Show line numbers.
 set number
 
-" Visual Bell OFF
+" Visual Bell OFF.
 set t_vb=
 
-" Encoding
+" Encoding.
 set encoding=utf-8
 
-" Do not wrap lines
+" Do not wrap lines.
 set nowrap
 
-" Use full width of a screen
+" Use full width of a screen.
 set textwidth=0
 
-" Format t=text c=comment q=paragraph(with gq)
+" Format t=text c=comment q=paragraph(with gq).
 set formatoptions=tcq
 
-" Width of a <TAB>
+" Width of a <TAB>.
 set tabstop=4
 
-" Auto-indent width
+" Auto-indent width.
 set shiftwidth=4
 
-" Width on <TAB> <BS> press
+" Width on <TAB> <BS> press.
 set softtabstop=4
 
-" Spaces for <TAB>
+" Spaces for <TAB>.
 set expandtab
 
-" Round the indentation to the nearest multiple of “shiftwidth”
+" Round the indentation to the nearest multiple of “shiftwidth”.
 set noshiftround
 
-" Offset lines UP and DOWN when searching
+" Offset lines UP and DOWN when searching.
 set scrolloff=10
 
-" Allow backspacing over indention, line breaks and insertion start
+" Allow backspacing over indention, line breaks and insertion start.
 set backspace=indent,eol,start
 
-" Disable swap files
+" Disable swap files.
 set noswapfile
 
-" Add < and > to pair tags, use % to jump b/w
+" Add < and > to pair tags, use % to jump b/w.
 set matchpairs+=<:>
 
-" Follow the text lines not physical lines
+" Follow the text lines not physical lines.
 nnoremap j gj
 nnoremap k gk
 
-" Fast terminal
+" Fast terminal.
 set ttyfast
 
-" Mouse in all modes
+" Mouse in all modes.
 set mouse=a
 
-" Always show status line
+" Always show status line.
 set laststatus=2
 
-" Status line
+" Status line.
 set statusline=
 set statusline+=%#DiffAdd#%{(mode()=='n')?'\ \ NORMAL\ ':''}
 set statusline+=%#DiffChange#%{(mode()=='i')?'\ \ INSERT\ ':''}
@@ -100,84 +100,85 @@ set statusline+=\ %3l:%-2c\                 " Line + Column
 set statusline+=%#Cursor#                   " Color
 set statusline+=\ %3p%%\                    " Percentage
 
-" Show command on last line
+" Show command on last line.
 set showcmd
 
-" Don't show mode on last line
+" Don't show mode on last line.
 set noshowmode
 
-" User mappings timeout (e.g. <leader><X>)
+" User mappings timeout (e.g. <leader><X>).
 set timeoutlen=1000
 
-" Escape sequences timeout (check with TMUX escape-time option)
+" Escape sequences timeout (check with TMUX escape-time option).
 set ttimeoutlen=10
 
-" \v - very magic i.e. allow regex search
+" \v - very magic i.e. allow regex search.
 nnoremap / /\v
 vnoremap / /\v
 
-" All search is highlighted
+" All search is highlighted.
 set hlsearch
 
-" Highlight search as typing
+" Highlight search as typing.
 set incsearch
 
-" Ignore case unless uppercase letter is typed (smartcase)
+" Ignore case unless uppercase letter is typed (smartcase).
 set ignorecase
 set smartcase
 
-" Show paired brace for 10 seconds
+" Show paired brace for 10 seconds.
 set showmatch
 set matchtime=1
 
-" All sub-directories when searching (:find)
-set path+=**
-
-" Menu ON
+" Menu on <TAB> completion of commands.
 set wildmenu
 
-" Don't look into build directories
+" Don't look into build directories.
 set wildignore+=**/build/**
 
-" Default to not read-only in vimdiff
+" Default to not read-only in vimdiff.
 set noro
 
-" Default spelling language
+" Default spelling language.
 set spell spelllang=en_us
 set nospell
 
-" END and HOME keys (all modes)
-map <esc>[H <home>
-map <esc>[F <end>
+" END and HOME keys (all modes).
+map <esc>[H <HOME>
+map <esc>[F <END>
 
-" Color scheme
+" GRUVBOX :-)
 set background=dark
+let g:NERDTreeShowHidden=1
 colorscheme gruvbox
 
 " All alterations to color should be done after the scheme is loaded!
 
-" Underline badly spelled words
+" Underline badly spelled words.
 highlight clear SpellBad
 highlight SpellBad cterm=underline
 
-" Toggle NERDTree on F3
 " In NERDTree:
 "   t = open in new tab
 "   s = open in new vertical split
 nnoremap <F3> :NERDTreeToggle<CR>
+nnoremap <F4> :NERDTreeFocus<CR>
 
-" +--------------------+
-" |LEADER KEY MAPPINGS:|
-" +--------------------+
+" Spell check toggle with <F7>.
+nnoremap <F7> :setlocal spell!<CR>
 
-" Clear search
+" +-------------------+
+" |LEADER KEY MAPPINGS|
+" +-------------------+
+
+" Clear search.
 map <leader><space> :let @/=''<CR>
 
-" Visualize tabs(.) and eol(¬) with <leader>n
+" Visualize tabs(.) and eol(¬) with <leader>n.
 set listchars=tab:▸\ ,eol:¬
 map <leader>n :set list!<CR>
 
-" <leader>+N for tab selection (all modes)
+" <leader>+N for tab selection (all modes).
 noremap <leader>1 1gt
 noremap <leader>2 2gt
 noremap <leader>3 3gt
@@ -188,11 +189,11 @@ noremap <leader>7 7gt
 noremap <leader>8 8gt
 noremap <leader>9 9gt
 
-" +----------+
-" |FUNCTIONS:|
-" +----------+
+" +---------+
+" |FUNCTIONS|
+" +---------+
 
-" Save the cursor position and restore last searched string (@/)
+" Save the cursor position and restore last searched string (@/).
 function! <SID>StripTrailingWhitespaces()
     let _s=@/
     let l = line(".")
@@ -203,16 +204,5 @@ function! <SID>StripTrailingWhitespaces()
     call cursor(l, c)
 endfunction
 
-" Delete trailing white spaces on F2
+" Delete trailing white spaces on F2.
 nnoremap <silent> <F2> :call <SID>StripTrailingWhitespaces()<CR>
-
-" Spell check ON/OFF with <F7>
-function! <SID>ToggleSpellCheck()
-    if &spell
-        setlocal nospell
-    else
-        setlocal spell
-    endif
-endfunction
-
-nnoremap <F7> :call <SID>ToggleSpellCheck()<CR>
