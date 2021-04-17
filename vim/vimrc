@@ -63,10 +63,6 @@ set noswapfile
 " Add < and > to pair tags, use % to jump b/w.
 set matchpairs+=<:>
 
-" Follow the text lines not physical lines.
-nnoremap j gj
-nnoremap k gk
-
 " Fast terminal.
 set ttyfast
 
@@ -106,15 +102,11 @@ set showcmd
 " Don't show mode on last line.
 set noshowmode
 
-" User mappings timeout (e.g. <leader><X>).
+" User mappings timeout (e.g. <LEADER><X>).
 set timeoutlen=1000
 
 " Escape sequences timeout (check with TMUX escape-time option).
 set ttimeoutlen=10
-
-" \v - very magic i.e. allow regex search.
-nnoremap / /\v
-vnoremap / /\v
 
 " All search is highlighted.
 set hlsearch
@@ -143,20 +135,34 @@ set noro
 set spell spelllang=en_us
 set nospell
 
-" END and HOME keys (all modes).
-map <esc>[H <HOME>
-map <esc>[F <END>
-
 " GRUVBOX :-)
 set background=dark
 let g:NERDTreeShowHidden=1
 colorscheme gruvbox
 
 " All alterations to color should be done after the scheme is loaded!
-
-" Underline badly spelled words.
 highlight clear SpellBad
 highlight SpellBad cterm=underline
+
+" +--------+
+" |MAPPINGS|
+" +--------+
+
+" Alternative <ESC>.
+" Ctrl+c works in command mode!
+inoremap C-C <ESC>
+
+" END and HOME keys (all modes).
+map <ESC>[H <HOME>
+map <ESC>[F <END>
+
+" \v - very magic i.e. allow regex search.
+nnoremap / /\v
+vnoremap / /\v
+
+" Follow the text lines not physical lines.
+nnoremap j gj
+nnoremap k gk
 
 " In NERDTree:
 "   t = open in new tab
@@ -172,22 +178,22 @@ nnoremap <F7> :setlocal spell!<CR>
 " +-------------------+
 
 " Clear search.
-map <leader><space> :let @/=''<CR>
+map <LEADER><SPACE> :let @/=''<CR>
 
-" Visualize tabs(.) and eol(¬) with <leader>n.
+" Visualize tabs(.) and eol(¬) with <LEADER>n.
 set listchars=tab:▸\ ,eol:¬
-map <leader>n :set list!<CR>
+map <LEADER>n :set list!<CR>
 
-" <leader>+N for tab selection (all modes).
-noremap <leader>1 1gt
-noremap <leader>2 2gt
-noremap <leader>3 3gt
-noremap <leader>4 4gt
-noremap <leader>5 5gt
-noremap <leader>6 6gt
-noremap <leader>7 7gt
-noremap <leader>8 8gt
-noremap <leader>9 9gt
+" <LEADER>+N for tab selection (all modes).
+noremap <LEADER>1 1gt
+noremap <LEADER>2 2gt
+noremap <LEADER>3 3gt
+noremap <LEADER>4 4gt
+noremap <LEADER>5 5gt
+noremap <LEADER>6 6gt
+noremap <LEADER>7 7gt
+noremap <LEADER>8 8gt
+noremap <LEADER>9 9gt
 
 " +---------+
 " |FUNCTIONS|
