@@ -135,6 +135,9 @@ set noro
 set spell spelllang=en_us
 set nospell
 
+" Allow hiddedn buffers (that are not liked to file yet).
+set hidden
+
 " GRUVBOX :-)
 set background=dark
 let g:NERDTreeShowHidden=1
@@ -155,6 +158,8 @@ inoremap C-C <ESC>
 " END and HOME keys (all modes).
 map <ESC>[H <HOME>
 map <ESC>[F <END>
+imap <ESC>[H <HOME>
+imap <ESC>[F <END>
 
 " \v - very magic i.e. allow regex search.
 nnoremap / /\v
@@ -172,6 +177,14 @@ nnoremap <F4> :NERDTreeFocus<CR>
 
 " Spell check toggle with <F7>.
 nnoremap <F7> :setlocal spell!<CR>
+
+" Next buffer.
+silent! nunmap <S-H><CR>
+nnoremap <S-H> :bn<CR>
+
+" Previous buffer.
+silent! nunmap <S-L><CR>
+nnoremap <S-L> :bp<CR>
 
 " +-------------------+
 " |LEADER KEY MAPPINGS|
