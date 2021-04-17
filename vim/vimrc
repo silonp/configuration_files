@@ -4,7 +4,7 @@ set nocompatible
 " Helps force plugins to load correctly when it is turned back on below
 filetype off
 
-" Load pluagins here (pathogen or vundle)
+" Load plugins here (pathogen or vundle)
 
 " Turn on syntax highlighting
 syntax on
@@ -21,7 +21,7 @@ set modelines=0
 " Show line numbers
 set number
 
-" Visualbell OFF
+" Visual Bell OFF
 set t_vb=
 
 " Encoding
@@ -83,21 +83,21 @@ set statusline+=%#DiffChange#%{(mode()=='i')?'\ \ INSERT\ ':''}
 set statusline+=%#DiffDelete#%{(mode()=='r')?'\ \ RPLACE\ ':''}
 set statusline+=%#Cursor#%{(mode()=='v')?'\ \ VISUAL\ ':''}
 set statusline+=\ %n\                       " Buffer number
-set statusline+=%#Visual#                   " Colour
+set statusline+=%#Visual#                   " Color
 set statusline+=%{&paste?'\ PASTE\ ':''}
 set statusline+=%{&spell?'\ SPELL\ ':''}
-set statusline+=%#CursorIM#                 " Colour
-set statusline+=%R                          " Readonly flag
+set statusline+=%#CursorIM#                 " Color
+set statusline+=%R                          " Read-only flag
 set statusline+=%M                          " Modified [+] flag
-set statusline+=%#Cursor#                   " Colour
-set statusline+=%#CursorLine#               " Colour
+set statusline+=%#Cursor#                   " Color
+set statusline+=%#CursorLine#               " Color
 set statusline+=\ %f\                       " File name
 set statusline+=%=                          " Right align
-set statusline+=%#CursorLine#               " Colour
+set statusline+=%#CursorLine#               " Color
 set statusline+=\ %Y\                       " File type
-set statusline+=%#CursorIM#                 " Colour
+set statusline+=%#CursorIM#                 " Color
 set statusline+=\ %3l:%-2c\                 " Line + Column
-set statusline+=%#Cursor#                   " Colour
+set statusline+=%#Cursor#                   " Color
 set statusline+=\ %3p%%\                    " Percentage
 
 " Show command on last line
@@ -142,12 +142,9 @@ set wildignore+=**/build/**
 " Default to not read-only in vimdiff
 set noro
 
-" Clear search
-map <leader><space> :let @/=''<CR>
-
-" Visualize tabs(.) and eol(¬) with <leader>n
-set listchars=tab:▸\ ,eol:¬
-map <leader>n :set list!<CR>
+" Default spelling language
+set spell spelllang=en_us
+set nospell
 
 " END and HOME keys (all modes)
 map <esc>[H <home>
@@ -157,11 +154,28 @@ map <esc>[F <end>
 set background=dark
 colorscheme gruvbox
 
+" All alterations to color should be done after the scheme is loaded!
+
+" Underline badly spelled words
+highlight clear SpellBad
+highlight SpellBad cterm=underline
+
 " Toggle NERDTree on F3
 " In NERDTree:
 "   t = open in new tab
 "   s = open in new vertical split
 nnoremap <F3> :NERDTreeToggle<CR>
+
+" +--------------------+
+" |LEADER KEY MAPPINGS:|
+" +--------------------+
+
+" Clear search
+map <leader><space> :let @/=''<CR>
+
+" Visualize tabs(.) and eol(¬) with <leader>n
+set listchars=tab:▸\ ,eol:¬
+map <leader>n :set list!<CR>
 
 " <leader>+N for tab selection (all modes)
 noremap <leader>1 1gt
@@ -174,7 +188,11 @@ noremap <leader>7 7gt
 noremap <leader>8 8gt
 noremap <leader>9 9gt
 
-" Save the cursor position and resore last searched strin (@/)
+" +----------+
+" |FUNCTIONS:|
+" +----------+
+
+" Save the cursor position and restore last searched string (@/)
 function! <SID>StripTrailingWhitespaces()
     let _s=@/
     let l = line(".")
@@ -185,5 +203,16 @@ function! <SID>StripTrailingWhitespaces()
     call cursor(l, c)
 endfunction
 
-" Delete trailing whitespaces on F2
+" Delete trailing white spaces on F2
 nnoremap <silent> <F2> :call <SID>StripTrailingWhitespaces()<CR>
+
+" Spell check ON/OFF with <F7>
+function! <SID>ToggleSpellCheck()
+    if &spell
+        setlocal nospell
+    else
+        setlocal spell
+    endif
+endfunction
+
+nnoremap <F7> :call <SID>ToggleSpellCheck()<CR>
