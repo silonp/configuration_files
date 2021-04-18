@@ -103,7 +103,7 @@ set showcmd
 " Don't show mode on last line.
 set noshowmode
 
-" User mappings timeout (e.g. <LEADER><X>).
+" User mappings timeout (e.g. <Leader><X>).
 set timeoutlen=500
 
 " Escape sequences timeout (check with TMUX escape-time option).
@@ -152,6 +152,7 @@ highlight SpellBad cterm=underline ctermfg=white
 
 " NERDTree settings.
 let g:NERDTreeShowHidden=1
+let g:NERDTreeQuitOnOpen=1
 
 " +--------+
 " |MAPPINGS|
@@ -198,22 +199,25 @@ nnoremap <S-L> :bp<CR>
 " Note <SILENT> does not work, use <silent>.
 
 " Clear search register.
-map <silent> <LEADER><SPACE> :let @/=''<CR>
+map <silent> <Leader><Space> :let @/=''<CR>
 
-" Visualize tabs(.) and eol(¬) with <LEADER>n.
+" Visualize tabs(.) and eol(¬) with <Leader>n.
 set listchars=tab:▸\ ,eol:¬
-map <LEADER>n :set list!<CR>
+map <Leader>n :set list!<CR>
 
-" <LEADER>+N for tab selection (all modes).
-noremap <LEADER>1 1gt
-noremap <LEADER>2 2gt
-noremap <LEADER>3 3gt
-noremap <LEADER>4 4gt
-noremap <LEADER>5 5gt
-noremap <LEADER>6 6gt
-noremap <LEADER>7 7gt
-noremap <LEADER>8 8gt
-noremap <LEADER>9 9gt
+" <Leader>+N for tab selection (all modes).
+noremap <Leader>1 1gt
+noremap <Leader>2 2gt
+noremap <Leader>3 3gt
+noremap <Leader>4 4gt
+noremap <Leader>5 5gt
+noremap <Leader>6 6gt
+noremap <Leader>7 7gt
+noremap <Leader>8 8gt
+noremap <Leader>9 9gt
+
+" List buffers and let the user to pick.
+nnoremap <Leader>b :ls<CR>:b<Space>
 
 " +---------+
 " |FUNCTIONS|
