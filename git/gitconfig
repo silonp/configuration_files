@@ -40,6 +40,3 @@
     support = support/
     ; No tag prefix.
     versiontag =
-
-[submodule]
-    recurse = true
