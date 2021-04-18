@@ -243,3 +243,4 @@ endfunction
 
 " Delete trailing white spaces on F2.
 nnoremap <silent> <F2> :call <SID>StripTrailingWhitespaces()<CR>
+highligh CtrlPMode1 ctermfg=green

@@ -1,0 +1,40 @@
+diff --git a/autoload/ctrlp.vim b/autoload/ctrlp.vim
+index c8f5e1b..efa74d0 100644
+--- a/autoload/ctrlp.vim
++++ b/autoload/ctrlp.vim
+@@ -215,9 +215,9 @@ en
+ let g:ctrlp_builtins = len(g:ctrlp_types)-1
+ 
+ let s:coretype_names = {
+-	\ 'fil' : 'files',
+-	\ 'buf' : 'buffers',
+-	\ 'mru' : 'mru files',
++	\ 'fil' : 'Files',
++	\ 'buf' : 'Buffers',
++	\ 'mru' : 'MRU Files',
+ 	\ }
+ 
+ let s:coretypes = map(copy(g:ctrlp_types), '[s:coretype_names[v:val], v:val]')
+@@ -1663,10 +1663,10 @@ fu! ctrlp#statusline()
+ 	let nxt = tps[s:walker(max, s:itemtype,  1)][1]
+ 	let prv = tps[s:walker(max, s:itemtype, -1)][1]
+ 	let s:ctype = tps[s:itemtype][0]
+-	let focus   = s:focus ? 'prt'  : 'win'
+-	let byfname = s:ispath ? s:byfname ? 'file' : 'path' : 'line'
++	let focus   = s:focus ? 'PRT'  : 'WIN'
++	let byfname = s:ispath ? s:byfname ? 'File' : 'Path' : 'Line'
+ 	let marked  = s:opmul != '0' ?
+-		\ exists('s:marked') ? ' <'.s:dismrk().'>' : ' <->' : ''
++		\ exists('s:marked') ? ''.s:dismrk().'' : '' : ''
+ 	if s:status != {}
+ 		let argms =
+ 			\ get(s:status, 'arg_type', '') == 'dict' ? [{
+@@ -1684,7 +1684,7 @@ fu! ctrlp#statusline()
+ 		let focus   = '%#CtrlPMode2# '.focus.' %*'
+ 		let byfname = '%#CtrlPMode1# '.byfname.' %*'
+ 		let regex   = s:regexp  ? '%#CtrlPMode2# regex %*' : ''
+-		let slider  = ' <'.prv.'>={'.item.'}=<'.nxt.'>'
++		let slider  = ''.item.''
+ 		let dir     = ' %=%<%#CtrlPMode2# %{getcwd()} %*'
+ 		let &l:stl  = focus.byfname.regex.slider.marked.dir
+ 		if exists('s:timer')
