@@ -144,12 +144,14 @@ set hidden
 
 " GRUVBOX :-)
 set background=dark
-let g:NERDTreeShowHidden=1
 colorscheme gruvbox
 
 " All alterations to color should be done after the scheme is loaded!
 highlight clear SpellBad
 highlight SpellBad cterm=underline ctermfg=white
+
+" NERDTree settings.
+let g:NERDTreeShowHidden=1
 
 " +--------+
 " |MAPPINGS|
@@ -177,7 +179,7 @@ nnoremap k gk
 "   t = open in new tab
 "   s = open in new vertical split
 nnoremap <F3> :NERDTreeToggle<CR>
-nnoremap <F4> :NERDTreeFocus<CR>
+nnoremap <F4> :NERDTreeFind<CR>
 
 " Spell check toggle with <F7>.
 nnoremap <F7> :setlocal spell!<CR>
