@@ -123,6 +123,9 @@ set smartcase
 set showmatch
 set matchtime=1
 
+" Search PATH:
+set path+=~/comboard
+
 " Menu on <TAB> completion of commands.
 set wildmenu
 
@@ -146,7 +149,7 @@ colorscheme gruvbox
 
 " All alterations to color should be done after the scheme is loaded!
 highlight clear SpellBad
-highlight SpellBad cterm=underline
+highlight SpellBad cterm=underline ctermfg=white
 
 " +--------+
 " |MAPPINGS|
