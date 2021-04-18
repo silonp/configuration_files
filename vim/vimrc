@@ -152,9 +152,9 @@ highlight clear SpellBad
 highlight SpellBad cterm=underline ctermfg=white
 
 " CtrlP uses these 3 highlight groups.
-highlight CtrlPMode1 cterm=NONE ctermfg=230 ctermbg=239
-highlight CtrlPMode2 cterm=NONE ctermfg=230 ctermbg=239
-highlight CtrlPStats cterm=NONE ctermfg=230 ctermbg=239
+highlight CtrlPMode1 cterm=NONE ctermfg=180 ctermbg=239
+highlight CtrlPMode2 cterm=NONE ctermfg=180 ctermbg=239
+highlight CtrlPStats cterm=NONE ctermfg=180 ctermbg=239
 
 " NERDTree settings.
 let g:NERDTreeShowHidden=1
