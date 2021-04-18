@@ -15,8 +15,12 @@ After cloning don't forget `git submodule init` followed by `git submodule updat
     * `cmd //c 'mklink /D %HOME%\.vim %HOME%\configuration_files\vim\vim'`
     * `cmd //c 'mklink %HOME%\.vimrc %HOME%\configuration_files\vim\vimrc'`
 
+### Patches
+Folder `vim/patch` contains optional patches. Install it to respective repository. E.g. CtrlP:
+`git apply ~/configuration_files/vim/patch/ctrlp/statusline.patch`
+
 ## Tmux
-Use `tmux_start` script to start or attach to the session. Use `tmux_end` to destory the session.
+Use `tmux_start` script to start or attach to the session. Use `tmux_end` to destroy the session.
 
  * Linux `ln -s ~/configuration_files/tmux/tmux.conf ~/.tmux.conf`
  * Cygwin/MSYS2 `cmd //c 'mklink %HOME%\.tmux.conf %HOME%\configuration_files\tmux\tmux.conf'`

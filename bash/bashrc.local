@@ -97,6 +97,7 @@ alias ls='ls -hF --color=auto'
 alias ll='ls -l'
 alias la='ls -lA'
 
+alias gti='git'
 alias tmux_end='tmux kill-server'
 
 # Functions:
