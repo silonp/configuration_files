@@ -151,6 +151,11 @@ colorscheme gruvbox
 highlight clear SpellBad
 highlight SpellBad cterm=underline ctermfg=white
 
+" CtrlP uses these 3 highlight groups.
+highlight CtrlPMode1 cterm=NONE ctermfg=230 ctermbg=239
+highlight CtrlPMode2 cterm=NONE ctermfg=230 ctermbg=239
+highlight CtrlPStats cterm=NONE ctermfg=230 ctermbg=239
+
 " NERDTree settings.
 let g:NERDTreeShowHidden=1
 let g:NERDTreeQuitOnOpen=1
@@ -243,4 +248,3 @@ endfunction
 
 " Delete trailing white spaces on F2.
 nnoremap <silent> <F2> :call <SID>StripTrailingWhitespaces()<CR>
-highligh CtrlPMode1 ctermfg=green
