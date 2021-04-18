@@ -131,6 +131,7 @@ set wildmenu
 
 " Don't look into build directories.
 set wildignore+=**/build/**
+set wildignore+=**/tmp/**
 
 " Default to not read-only in vimdiff.
 set noro
@@ -153,6 +154,12 @@ highlight SpellBad cterm=underline ctermfg=white
 " NERDTree settings.
 let g:NERDTreeShowHidden=1
 let g:NERDTreeQuitOnOpen=1
+
+" CtrlP settings.
+" r = Ancestor GIT directory.
+" a = Subdirectory of current file.
+let g:ctrlp_working_path_mode ='ra'
+let g:ctrlp_show_hidden=1
 
 " +--------+
 " |MAPPINGS|
