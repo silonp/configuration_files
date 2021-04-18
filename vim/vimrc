@@ -139,7 +139,7 @@ set noro
 set spell spelllang=en_us
 set nospell
 
-" Allow hiddedn buffers (that are not liked to file yet).
+" Allow hidden buffers (that are not liked to file yet).
 set hidden
 
 " GRUVBOX :-)
