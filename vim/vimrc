@@ -74,20 +74,21 @@ set laststatus=2
 
 " Status line.
 set statusline=
-set statusline+=%#DiffAdd#%{(mode()=='n')?'\ \ NORMAL\ ':''}
-set statusline+=%#DiffChange#%{(mode()=='i')?'\ \ INSERT\ ':''}
-set statusline+=%#DiffDelete#%{(mode()=='r')?'\ \ RPLACE\ ':''}
-set statusline+=%#Cursor#%{(mode()=='v')?'\ \ VISUAL\ ':''}
-set statusline+=\ %n\                       " Buffer number
+set statusline+=%#DiffAdd#%{(mode()=='n')?'\ \ NORMAL\ ':''}        " GREEN
+set statusline+=%#DiffDelete#%{(mode()=='i')?'\ \ INSERT\ ':''}     " RED
+set statusline+=%#DiffChange#%{(mode()=='r')?'\ \ RPLACE\ ':''}     " AQUA
+set statusline+=%#DiffText#%{(mode()=='v')?'\ \ VISUAL\ ':''}       " YELLOW
+set statusline+=%#Cursor#                   " Color
+set statusline+=\ %n\                       " Buffer no.
 set statusline+=%#Visual#                   " Color
-set statusline+=%{&paste?'\ PASTE\ ':''}
-set statusline+=%{&spell?'\ SPELL\ ':''}
+set statusline+=%{&paste?'\ PASTE\ ':''}    " :set paste ON
+set statusline+=%{&spell?'\ SPELL\ ':''}	" :set spell ON
 set statusline+=%#CursorIM#                 " Color
-set statusline+=%R                          " Read-only flag
+set statusline+=%R                          " Read-only flag (RO)
 set statusline+=%M                          " Modified [+] flag
 set statusline+=%#Cursor#                   " Color
 set statusline+=%#CursorLine#               " Color
-set statusline+=\ %f\                       " File name
+set statusline+=\ %f\                       " Full file name
 set statusline+=%=                          " Right align
 set statusline+=%#CursorLine#               " Color
 set statusline+=\ %Y\                       " File type
@@ -103,7 +104,7 @@ set showcmd
 set noshowmode
 
 " User mappings timeout (e.g. <LEADER><X>).
-set timeoutlen=1000
+set timeoutlen=500
 
 " Escape sequences timeout (check with TMUX escape-time option).
 set ttimeoutlen=10
@@ -189,9 +190,10 @@ nnoremap <S-L> :bp<CR>
 " +-------------------+
 " |LEADER KEY MAPPINGS|
 " +-------------------+
+" Note <SILENT> does not work, use <silent>.
 
-" Clear search.
-map <LEADER><SPACE> :let @/=''<CR>
+" Clear search register.
+map <silent> <LEADER><SPACE> :let @/=''<CR>
 
 " Visualize tabs(.) and eol(¬) with <LEADER>n.
 set listchars=tab:▸\ ,eol:¬
