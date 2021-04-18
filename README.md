@@ -16,7 +16,7 @@ After cloning don't forget `git submodule init` followed by `git submodule updat
     * `cmd //c 'mklink %HOME%\.vimrc %HOME%\configuration_files\vim\vimrc'`
 
 ### Patches
-Folder `vim/patch` contains optional patches. Install it to respective repository. E.g. _CtrlP_:
+Folder `vim/patch` contains optional patches. Install it to respective repository. E.g. CtrlP plugin:
 
 `git apply ~/configuration_files/vim/patch/ctrlp/statusline.patch`
 
