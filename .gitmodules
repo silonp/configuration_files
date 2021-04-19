@@ -10,3 +10,4 @@
 [submodule "vim/vim/pack/ctrlp/start/ctrlp"]
 	path = vim/vim/pack/ctrlp/start/ctrlp
 	url = git@github.com:ctrlpvim/ctrlp.vim.git
+	ignore = dirty
