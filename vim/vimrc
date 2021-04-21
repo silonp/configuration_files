@@ -143,7 +143,11 @@ set nospell
 " Allow hidden buffers (that are not liked to file yet).
 set hidden
 
-" GRUVBOX :-)
+" Relative line numbers.
+set relativenumber
+
+" GRUVBOX settings:
+" -----------------
 set background=dark
 colorscheme gruvbox
 
@@ -151,20 +155,21 @@ colorscheme gruvbox
 highlight clear SpellBad
 highlight SpellBad cterm=underline ctermfg=white
 
+" NERDTree settings:
+" ------------------
+let g:NERDTreeShowHidden=1
+let g:NERDTreeQuitOnOpen=1
+
+" CtrlP settings:
+" ---------------
+let g:ctrlp_show_hidden=1
+let g:ctrlp_working_path_mode=0
+let g:ctrlp_match_window ='min:1,max:20'
+
 " CtrlP uses these 3 highlight groups.
 highlight CtrlPMode1 cterm=NONE ctermfg=180 ctermbg=239
 highlight CtrlPMode2 cterm=NONE ctermfg=180 ctermbg=239
 highlight CtrlPStats cterm=NONE ctermfg=180 ctermbg=239
-
-" NERDTree settings.
-let g:NERDTreeShowHidden=1
-let g:NERDTreeQuitOnOpen=1
-
-" CtrlP settings.
-" r = Ancestor GIT directory.
-" a = Subdirectory of current file.
-let g:ctrlp_working_path_mode ='ra'
-let g:ctrlp_show_hidden=1
 
 " +--------+
 " |MAPPINGS|

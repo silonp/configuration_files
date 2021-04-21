@@ -109,10 +109,6 @@ find_dir () {
     find . -name "$1" -type d
 }
 
-find_text() {
-    grep -R "$1" .
-}
-
 # Extra functions:
 if [ -f "$HOME/.bash_functions" ]; then
     . $HOME/.bash_functions
