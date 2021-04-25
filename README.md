@@ -20,7 +20,7 @@ Folder `vim/patch` contains optional patches. Install it to respective repositor
 
 `git apply ~/configuration_files/vim/patch/ctrlp/statusline.patch`
 
-When you're bothered by "dirty" git prompt add following to `.gitmodules`
+When you're bothered by "dirty" git prompt add the following to `.gitmodules`
 ```gitmodules
 [submodule "path/to/submodule"]
     ...
