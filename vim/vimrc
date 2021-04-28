@@ -162,9 +162,10 @@ let g:NERDTreeQuitOnOpen=1
 
 " CtrlP settings:
 " ---------------
+let g:ctrlp_match_window ='min:1,max:20'
+let g:ctrlp_regexp=1
 let g:ctrlp_show_hidden=1
 let g:ctrlp_working_path_mode=0
-let g:ctrlp_match_window ='min:1,max:20'
 
 " CtrlP uses these 3 highlight groups.
 highlight CtrlPMode1 cterm=NONE ctermfg=180 ctermbg=239
