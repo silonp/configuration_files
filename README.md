@@ -51,3 +51,4 @@ Global git configuration.
 
  * Linux `ln -s ~/configuration_files/git/gitconfig ~/.gitconfig`
  * Cygwin/MSYS2 `cmd //c 'mklink %HOME%\.gitconfig %HOME%\configuration_files\git\gitconfig'`
+ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPiqNzfpRibF9+N/gXh2/xHSZLe3Nb7XcSSDirMljsjl silonp@wdenurcntdeb12
