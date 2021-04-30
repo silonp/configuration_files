@@ -87,7 +87,8 @@ esac
 
 # Aliases:
 alias df='df -h'
-alias du='du -hs'
+alias du='du -h'
+alias hn='hostname -f'
 
 alias grep='grep --color'
 alias egrep='egrep --color=auto'
