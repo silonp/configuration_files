@@ -82,7 +82,7 @@ set statusline+=%#Cursor#                   " Color
 set statusline+=\ %n\                       " Buffer no.
 set statusline+=%#Visual#                   " Color
 set statusline+=%{&paste?'\ PASTE\ ':''}    " :set paste ON
-set statusline+=%{&spell?'\ SPELL\ ':''}	" :set spell ON
+set statusline+=%{&spell?'\ SPELL\ ':''}    " :set spell ON
 set statusline+=%#CursorIM#                 " Color
 set statusline+=%R                          " Read-only flag (RO)
 set statusline+=%M                          " Modified [+] flag
@@ -242,7 +242,7 @@ nnoremap <Leader>b :ls<CR>:b<Space>
 " +---------+
 
 " Save the cursor position and restore last searched string (@/).
-function! <SID>StripTrailingWhitespaces()
+function! StripTrailingWhitespaces()
     let _s=@/
     let l = line(".")
     let c = col(".")
@@ -253,4 +253,35 @@ function! <SID>StripTrailingWhitespaces()
 endfunction
 
 " Delete trailing white spaces on F2.
-nnoremap <silent> <F2> :call <SID>StripTrailingWhitespaces()<CR>
+nnoremap <silent> <F2> :call StripTrailingWhitespaces()<CR>
+
+" Adds numbers to tabs.
+" Custom tabline (shamelessly stolen from stackoverflow).
+function! MyTabLabel(n)
+    let buflist = tabpagebuflist(a:n)
+    let winnr = tabpagewinnr(a:n)
+    let string = fnamemodify(bufname(buflist[winnr - 1]), ':t')
+    return empty(string) ? '[unnamed]' : string
+endfunction!
+
+function! MyTabLine()
+    let s = ''
+    for i in range(tabpagenr('$'))
+        if i + 1 == tabpagenr()
+            let s .= '%#TabLineSel#'
+        else
+            let s .= '%#TabLine#'
+        endif
+
+        let s .= ' '. (i+1) . ' '
+        let s .= ' %{MyTabLabel(' . (i + 1) . ')} '
+
+        if i+1 < tabpagenr('$')
+            let s .= ' |'
+        endif
+    endfor
+    return s
+endfunction!
+
+" Use the custom tabline:
+set tabline=%!MyTabLine()
