@@ -31,6 +31,7 @@
 
 [gitflow "branch"]
     master = master
+    ; Beware!
     develop = dunfell
 
 [gitflow "prefix"]
@@ -40,3 +41,17 @@
     support = support/
     ; No tag prefix.
     versiontag =
+
+[diff]
+    tool = vimdiff
+
+[difftool]
+    prompt = false
+
+[merge]
+    tool = vimdiff
+    conflictstyle = diff3
+
+[mergetool]
+    prompt = false
+    keepBackup = false
