@@ -13,11 +13,16 @@ shopt -s checkwinsize
 
 TRACE=0
 
+CWD=$(dirname ${BASH_SOURCE[0]})
+
 # List all possible GIT installations.
 # First will be used.
 GIT_DIRS=(
+    # Standard locations:
     /usr/share/git
-    $HOME/git
+
+    # Fallback:
+    $CWD/../git/git-prompt
 )
 
 GIT_PROMPT=0
