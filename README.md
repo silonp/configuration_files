@@ -27,6 +27,14 @@ When you're bothered by "dirty" git prompt add the following to `.gitmodules`
     ignore = dirty
     ...
 ```
+
+### Python
+For [ALE](https://github.com/dense-analysis/ale) to work correctly install:
+```
+sudo pip3 install flake8
+sudo pip3 install autopep8
+```
+
 ## Tmux
 Use `tmux_start` script to start or attach to the session. Use `tmux_end` to destroy the session.
 

@@ -11,3 +11,6 @@
 	path = vim/vim/pack/ctrlp/start/ctrlp
 	url = git@github.com:ctrlpvim/ctrlp.vim.git
 	ignore = dirty
+[submodule "vim/vim/pack/ale/start/ale"]
+	path = vim/vim/pack/ale/start/ale
+	url = git@github.com:dense-analysis/ale.git
