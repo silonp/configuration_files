@@ -7,6 +7,10 @@ fi
 
 TERM=xterm-256color
 
+# Make Vim default editor:
+export EDITOR=vim
+export VISUAL=vim
+
 # Check the window size after each command.
 # Update the values of LINES and COLUMNS.
 shopt -s checkwinsize
