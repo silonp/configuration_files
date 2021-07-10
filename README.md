@@ -28,11 +28,20 @@ When you're bothered by "dirty" git prompt add the following to `.gitmodules`
     ...
 ```
 
-### Python
 For [ALE](https://github.com/dense-analysis/ale) to work correctly install:
+
+### Python
 ```
 sudo pip3 install flake8
 sudo pip3 install autopep8
+```
+
+### C/C++
+Install LLVM package feed first. Help [here](https://apt.llvm.org/) and [here](https://stackoverflow.com/questions/66223241/how-to-install-clang-11-on-debian).
+```
+sudo apt-get install clang-12
+sudo apt-get install clang-tidy-12
+sudo apt-get install clang-format-12
 ```
 
 ## Tmux
