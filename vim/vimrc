@@ -175,16 +175,18 @@ highlight CtrlPStats cterm=NONE ctermfg=180 ctermbg=239
 " ALE settings:
 " -------------
 let g:ale_linters = {
-\   'python': ['flake8'],
+\   'c': ['clangtidy'],
+\   'cmake': ['cmakelint'],
 \   'cpp': ['clangtidy'],
-\   'c': ['clangtidy']
+\   'python': ['flake8'],
 \}
 
 let g:ale_fixers = {
-\   'python': ['autopep8'],
-\   'cpp': ['clang-format'],
+\   '*': ['remove_trailing_lines', 'trim_whitespace'],
 \   'c': ['clang-format'],
-\   '*': ['remove_trailing_lines', 'trim_whitespace']
+\   'cmake': ['cmakeformat'],
+\   'cpp': ['clang-format'],
+\   'python': ['autopep8'],
 \}
 
 let g:ale_fix_on_save=1
@@ -201,6 +203,9 @@ let g:ale_c_clangformat_use_local_file=1
 let g:ale_cpp_clangtidy_checks = []
 let g:ale_cpp_clangtidy_executable = 'clang-tidy-12'
 let g:ale_c_clangtidy_fix_errors=1
+
+let g:ale_cmake_cmakelint_executable = 'cmake-lint'
+let g:ale_cmake_cmakeformat_executable = 'cmake-format'
 
 " +--------+
 " |MAPPINGS|
