@@ -191,15 +191,21 @@ let g:ale_fixers = {
 
 let g:ale_fix_on_save=1
 
+" A list of directory names to be used when searching upwards from cpp files
+" to discover compilation databases with (compile_commands.json).
+" let g:ale_c_build_dir_names = ['build', 'bin']
+
 let g:ale_python_flake8_options = '--max-line-length 120'
 let g:ale_python_autopep8_options = '--max-line-length 120'
 
 let g:ale_c_parse_compile_commands=1
 let g:ale_c_parse_makefile=0
 
+" Options are in .clang-format.
 let g:ale_c_clangformat_executable = 'clang-format-12'
 let g:ale_c_clangformat_use_local_file=1
 
+" Checks are in .clang-tidy.
 let g:ale_cpp_clangtidy_checks = []
 let g:ale_cpp_clangtidy_executable = 'clang-tidy-12'
 let g:ale_c_clangtidy_fix_errors=1
@@ -247,8 +253,8 @@ silent! nunmap <S-L><CR>
 nnoremap <S-L> :bp<CR>
 
 " Next and Previous ALE error:
-nnoremap ]a :ALENext<CR>
-nnoremap [a :ALEPrevious<CR>
+nnoremap ]e :ALENext<CR>
+nnoremap [e :ALEPrevious<CR>
 
 " +-------------------+
 " |LEADER KEY MAPPINGS|
