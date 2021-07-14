@@ -189,7 +189,7 @@ let g:ale_fixers = {
 \   'python': ['autopep8'],
 \}
 
-let g:ale_fix_on_save=1
+let g:ale_fix_on_save=0
 
 " A list of directory names to be used when searching upwards from cpp files
 " to discover compilation databases with (compile_commands.json).
@@ -214,6 +214,17 @@ let g:ale_cmake_cmakelint_executable = 'cmake-lint'
 let g:ale_cmake_cmakeformat_executable = 'cmake-format'
 
 " +--------+
+" |COMMANDS|
+" +--------+
+
+" Run ALE fixers with :Fm or :fm.
+command Fm :ALEFix
+cnoreabbrev fm Fm
+
+" Save file with sudo:
+command! -nargs=0 W :w !sudo tee % >/dev/null
+
+" +--------+
 " |MAPPINGS|
 " +--------+
 
@@ -234,6 +245,9 @@ vnoremap / /\v
 " Follow the text lines not physical lines.
 nnoremap j gj
 nnoremap k gk
+
+" Run ALE fixers with F2:
+nnoremap <F2> :ALEFix<CR>
 
 " In NERDTree:
 "   t = open in new tab
