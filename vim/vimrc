@@ -248,7 +248,7 @@ command! -nargs=0 W :w !sudo tee % >/dev/null
 
 " Alternative <ESC>.
 " Ctrl+c works in command mode!
-inoremap C-C <ESC>
+inoremap C-c <ESC>
 
 " END and HOME keys (all modes).
 map <ESC>[H <HOME>
@@ -269,10 +269,10 @@ nmap <F3> <Plug>(ale_go_to_definition_in_tab)
 nmap <F4> <Plug>(ale_go_to_type_definition_in_tab)
 
 " In NERDTree:
-"   t = open in new tab
-"   s = open in new vertical split
-nnoremap <F5> :NERDTreeToggle<CR>
-nnoremap <F6> :NERDTreeFind<CR>
+"   t = open in new tab.
+"   s = open in new vertical split.
+nnoremap <C-n> :NERDTreeToggle<CR>
+nnoremap <C-m> :NERDTreeFind<CR>
 
 " Spell check toggle with <F7>.
 nnoremap <F7> :setlocal spell!<CR>
