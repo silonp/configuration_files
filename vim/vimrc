@@ -184,7 +184,7 @@ let g:ale_linters = {
 let g:ale_fixers = {
 \   '*': ['remove_trailing_lines', 'trim_whitespace'],
 \   'c': ['clang-format'],
-\   'cmake': ['cmakeformat'],
+\   'cmake': ['cmakeformat', 'remove_trailing_lines', 'trim_whitespace'],
 \   'cpp': ['clang-format'],
 \   'python': ['autopep8'],
 \}
@@ -212,6 +212,9 @@ let g:ale_c_clangtidy_fix_errors=1
 
 let g:ale_cmake_cmakelint_executable = 'cmake-lint'
 let g:ale_cmake_cmakeformat_executable = 'cmake-format'
+
+" Disable CMake formatting:
+let g:ale_cmake_cmakeformat_options = '--disable'
 
 " +--------+
 " |COMMANDS|
