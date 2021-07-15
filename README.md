@@ -39,9 +39,10 @@ pip3 install --user autopep8
 ### C/C++
 Install LLVM package feed first. Help [here](https://apt.llvm.org/) and [here](https://stackoverflow.com/questions/66223241/how-to-install-clang-11-on-debian).
 ```
-sudo apt-get install clang-12
-sudo apt-get install clang-tidy-12
-sudo apt-get install clang-format-12
+sudo apt-get install clang
+sudo apt-get install clang-format
+sudo apt-get install clang-tidy
+sudo apt-get install clangd
 ```
 
 ### CMake

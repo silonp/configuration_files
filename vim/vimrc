@@ -174,14 +174,14 @@ highlight CtrlPStats cterm=NONE ctermfg=180 ctermbg=239
 
 " ALE settings:
 " -------------
-let g:ale_linters = {
+let g:ale_linters={
 \   'c': ['clangtidy'],
 \   'cmake': ['cmakelint'],
-\   'cpp': ['clangtidy'],
+\   'cpp': ['clangtidy', 'clangd'],
 \   'python': ['flake8'],
 \}
 
-let g:ale_fixers = {
+let g:ale_fixers={
 \   '*': ['remove_trailing_lines', 'trim_whitespace'],
 \   'c': ['clang-format'],
 \   'cmake': ['cmakeformat', 'remove_trailing_lines', 'trim_whitespace'],
@@ -191,30 +191,45 @@ let g:ale_fixers = {
 
 let g:ale_fix_on_save=0
 
+let g:ale_completion_enabled=1
+let g:ale_completion_autoimport=1
+
+" Use ALE's function for manual omnicompletion:
+set omnifunc=ale#completion#OmniFunc
+
 " A list of directory names to be used when searching upwards from cpp files
 " to discover compilation databases with (compile_commands.json).
-" let g:ale_c_build_dir_names = ['build', 'bin']
+" let g:ale_c_build_dir_names=['build', 'bin']
 
-let g:ale_python_flake8_options = '--max-line-length 120'
-let g:ale_python_autopep8_options = '--max-line-length 120'
+let g:ale_python_flake8_options='--max-line-length 120'
+let g:ale_python_autopep8_options='--max-line-length 120'
 
 let g:ale_c_parse_compile_commands=1
 let g:ale_c_parse_makefile=0
 
 " Options are in .clang-format.
-let g:ale_c_clangformat_executable = 'clang-format-12'
+let g:ale_c_clangformat_executable='clang-format-12'
 let g:ale_c_clangformat_use_local_file=1
 
 " Checks are in .clang-tidy.
-let g:ale_cpp_clangtidy_checks = []
-let g:ale_cpp_clangtidy_executable = 'clang-tidy-12'
+let g:ale_cpp_clangtidy_checks=[]
+let g:ale_cpp_clangtidy_executable='clang-tidy-12'
 let g:ale_c_clangtidy_fix_errors=1
 
-let g:ale_cmake_cmakelint_executable = 'cmake-lint'
-let g:ale_cmake_cmakeformat_executable = 'cmake-format'
+let g:ale_cmake_cmakelint_executable='cmake-lint'
+let g:ale_cmake_cmakeformat_executable='cmake-format'
 
 " Disable CMake formatting:
-let g:ale_cmake_cmakeformat_options = '--disable'
+let g:ale_cmake_cmakeformat_options='--disable'
+
+" Clangd is a LSP server:
+let g:ale_cpp_clangd_executable='clangd-12'
+" Path to compiler:
+let g:ale_cpp_clangd_options='--query-driver=/home/silonp/comboard/sdk/ccbv2/sysroots/x86_64-oesdk-linux/usr/bin/arm-wbs-linux-gnueabi/arm-wbs-linux-gnueabi-g++'
+let g:ale_cpp_clangd_options.=' --background-index'
+let g:ale_cpp_clangd_options.=' --completion-style=detailed'
+let g:ale_cpp_clangd_options.=' --cross-file-rename'
+let g:ale_cpp_clangd_options.=' --limit-results=10'
 
 " +--------+
 " |COMMANDS|
@@ -249,14 +264,15 @@ vnoremap / /\v
 nnoremap j gj
 nnoremap k gk
 
-" Run ALE fixers with F2:
-nnoremap <F2> :ALEFix<CR>
+nmap <F2> <Plug>(ale_fix)
+nmap <F3> <Plug>(ale_go_to_definition_in_tab)
+nmap <F4> <Plug>(ale_go_to_type_definition_in_tab)
 
 " In NERDTree:
 "   t = open in new tab
 "   s = open in new vertical split
-nnoremap <F3> :NERDTreeToggle<CR>
-nnoremap <F4> :NERDTreeFind<CR>
+nnoremap <F5> :NERDTreeToggle<CR>
+nnoremap <F6> :NERDTreeFind<CR>
 
 " Spell check toggle with <F7>.
 nnoremap <F7> :setlocal spell!<CR>
