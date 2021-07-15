@@ -217,9 +217,9 @@ let g:ale_cpp_clangtidy_executable='clang-tidy-12'
 let g:ale_c_clangtidy_fix_errors=1
 
 let g:ale_cmake_cmakelint_executable='cmake-lint'
-let g:ale_cmake_cmakeformat_executable='cmake-format'
+let g:ale_cmake_cmakelint_options='--tab-size 4'
 
-" Disable CMake formatting:
+let g:ale_cmake_cmakeformat_executable='cmake-format'
 let g:ale_cmake_cmakeformat_options='--disable'
 
 " Clangd is a LSP server:
@@ -248,7 +248,7 @@ command! -nargs=0 W :w !sudo tee % >/dev/null
 
 " Alternative <ESC>.
 " Ctrl+c works in command mode!
-inoremap C-c <ESC>
+inoremap C-C <ESC>
 
 " END and HOME keys (all modes).
 map <ESC>[H <HOME>
@@ -271,8 +271,8 @@ nmap <F4> <Plug>(ale_go_to_type_definition_in_tab)
 " In NERDTree:
 "   t = open in new tab.
 "   s = open in new vertical split.
-nnoremap <C-n> :NERDTreeToggle<CR>
-nnoremap <C-m> :NERDTreeFind<CR>
+nnoremap <C-N> :NERDTreeToggle<CR>
+nnoremap <C-M> :NERDTreeFind<CR>
 
 " Spell check toggle with <F7>.
 nnoremap <F7> :setlocal spell!<CR>
