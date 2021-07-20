@@ -266,7 +266,7 @@ nnoremap k gk
 
 nmap <F2> <Plug>(ale_fix)
 nmap <F3> <Plug>(ale_go_to_definition_in_tab)
-nmap <F4> <Plug>(ale_go_to_type_definition_in_tab)
+nmap <F4> <Plug>(ale_go_to_definition)
 
 " In NERDTree:
 "   t = open in new tab.
