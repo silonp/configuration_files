@@ -230,6 +230,7 @@ let g:ale_cpp_clangd_options.=' --background-index'
 let g:ale_cpp_clangd_options.=' --completion-style=detailed'
 let g:ale_cpp_clangd_options.=' --cross-file-rename'
 let g:ale_cpp_clangd_options.=' --limit-results=10'
+let g:ale_cpp_clangd_options.=' --header-insertion=never'
 
 " +--------+
 " |COMMANDS|
