@@ -158,7 +158,7 @@ highlight SpellBad cterm=underline ctermfg=white
 " NERDTree settings:
 " ------------------
 let g:NERDTreeShowHidden=1
-let g:NERDTreeQuitOnOpen=0
+let g:NERDTreeQuitOnOpen=1
 
 " CtrlP settings:
 " ---------------
