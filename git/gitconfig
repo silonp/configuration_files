@@ -31,8 +31,7 @@
 
 [gitflow "branch"]
     master = master
-    ; Beware!
-    develop = dunfell
+    develop = develop
 
 [gitflow "prefix"]
     feature = feature/
