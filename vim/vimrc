@@ -238,6 +238,7 @@ let g:ale_cpp_clangd_options.=' --header-insertion=never'
 " Recognize Jenkinsfile as groovy script.
 " This way also auto-indentation works.
 au BufNewFile,BufRead Jenkinsfile setf groovy
+au BufNewFile,BufRead Dockerfile* setf dockerfile
 
 " +--------+
 " |COMMANDS|
