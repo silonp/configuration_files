@@ -235,6 +235,9 @@ let g:ale_cpp_clangd_options.=' --cross-file-rename'
 let g:ale_cpp_clangd_options.=' --limit-results=10'
 let g:ale_cpp_clangd_options.=' --header-insertion=never'
 
+" HEADER GUARDS
+let g:headerguard_use_cpp_comments=1
+
 " Recognize Jenkinsfile as groovy script.
 " This way also auto-indentation works.
 au BufNewFile,BufRead Jenkinsfile setf groovy
@@ -276,6 +279,7 @@ nnoremap k gk
 nmap <F2> <Plug>(ale_fix)
 nmap <F3> <Plug>(ale_go_to_definition_in_tab)
 nmap <F4> <Plug>(ale_go_to_definition)
+nmap <F5> :HeaderguardAdd<CR>
 
 " In NERDTree:
 "   t = open in new tab.
