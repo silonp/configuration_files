@@ -357,3 +357,8 @@ endfunction!
 
 " Use the custom tabline:
 set tabline=%!MyTabLine()
+
+" Custom .h/.hpp header guards:
+function! g:HeaderguardName()
+    return "_" . toupper(expand('%:t:gs/[^0-9a-zA-Z_]/_/g')) . "_"
+endfunction
