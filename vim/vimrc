@@ -363,6 +363,10 @@ endfunction!
 set tabline=%!MyTabLine()
 
 " Custom .h/.hpp header guards:
+" _PARENTDIR_FILENAME__
 function! g:HeaderguardName()
-    return "_" . toupper(expand('%:t:gs/[^0-9a-zA-Z_]/_/g')) . "_"
+    let s = "_" . toupper(expand('%:p:h:t:gs/[^0-9a-zA-Z_]/_/g'))
+        \ . "_" . toupper(expand('%:t:gs/[^0-9a-zA-Z_]/_/g'))
+        \ . "_"
+    return s
 endfunction
