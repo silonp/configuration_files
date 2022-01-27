@@ -73,7 +73,8 @@ else
     PS1=$COLOR_PWD'\w'$COLOR_OFF'\$ '
 fi
 
-# PATH
+## PATH
+## $HOME/bin
 case $PATH in
     *"$HOME/bin"*)
         [ $TRACE == 1 ] && echo "'$HOME/bin' already in PATH."
@@ -84,6 +85,18 @@ case $PATH in
         ;;
 esac
 
+## $HOME/.local/bin
+case $PATH in
+    *"$HOME/.local/bin"*)
+        [ $TRACE == 1 ] && echo "'$HOME/.local/bin' already in PATH."
+        ;;
+
+    *)
+        PATH=$PATH:$HOME/.local/bin
+        ;;
+esac
+
+## $HOME/configuration_files/tmux/bin
 case $PATH in
     *"$HOME/configuration_files/tmux/bin"*)
         [ $TRACE == 1 ] && echo "'$HOME/configuration_files/tmux/bin' already in PATH."
