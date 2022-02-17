@@ -157,6 +157,9 @@ colorscheme gruvbox
 " All alterations to color should be done after the scheme is loaded!
 highlight clear SpellBad
 highlight SpellBad cterm=underline ctermfg=white
+highlight LineNr ctermfg=yellow
+highlight LineNrAbove ctermfg=darkgray
+highlight LineNrBelow ctermfg=darkgray
 
 " NERDTree settings:
 " ------------------
