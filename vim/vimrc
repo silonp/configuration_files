@@ -214,12 +214,12 @@ let g:ale_c_parse_compile_commands=1
 let g:ale_c_parse_makefile=0
 
 " Options are in .clang-format.
-let g:ale_c_clangformat_executable='clang-format-12'
+let g:ale_c_clangformat_executable='clang-format-15'
 let g:ale_c_clangformat_use_local_file=1
 
 " Checks are in .clang-tidy.
 let g:ale_cpp_clangtidy_checks=[]
-let g:ale_cpp_clangtidy_executable='clang-tidy-12'
+let g:ale_cpp_clangtidy_executable='clang-tidy-15'
 let g:ale_c_clangtidy_fix_errors=1
 
 let g:ale_cmake_cmakelint_executable='cmake-lint'
