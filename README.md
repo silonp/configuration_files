@@ -1,6 +1,19 @@
 # Configuration files to miscellaneous tools I use.
 Hiddned files do not have the `.` prefix for easier navigation.
 
+<!-- markdown-toc start GFM -->
+
+* [Vim](#vim)
+    * [Patches](#patches)
+    * [Python](#python)
+    * [C/C++](#cc)
+    * [CMake](#cmake)
+* [Tmux](#tmux)
+* [Bash](#bash)
+* [Git](#git)
+
+<!-- markdown-toc end -->
+
 ## Vim
 Vim plugins are added as git submodules. E.g. NERDTree:
 
