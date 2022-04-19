@@ -17,3 +17,6 @@
 [submodule "vim/vim/pack/headerguard/start/headerguard"]
 	path = vim/vim/pack/headerguard/start/headerguard
 	url = git@github.com:drmikehenry/vim-headerguard.git
+[submodule "vim/vim/pack/vim-markdown-toc/start/vim-markdown-toc"]
+	path = vim/vim/pack/vim-markdown-toc/start/vim-markdown-toc
+	url = git@github.com:mzlogin/vim-markdown-toc.git

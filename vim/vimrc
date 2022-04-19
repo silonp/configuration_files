@@ -243,6 +243,13 @@ let g:ale_cpp_clangd_options.=' --header-insertion=never'
 " HEADER GUARDS
 let g:headerguard_use_cpp_comments=1
 
+" VIM TOC settings:
+" -----------------
+let g:vmt_auto_update_on_save = 0
+let g:vmt_fence_text = 'markdown-toc start'
+let g:vmt_fence_closing_text = 'markdown-toc end'
+let g:vmt_fence_hidden_markdown_style = 'GFM'
+
 " Recognize Jenkinsfile as groovy script.
 " This way also auto-indentation works.
 au BufNewFile,BufRead Jenkinsfile setf groovy
