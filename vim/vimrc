@@ -224,6 +224,7 @@ let g:ale_c_clangtidy_fix_errors=1
 
 let g:ale_cmake_cmakelint_executable='cmake-lint'
 let g:ale_cmake_cmakelint_options='--tab-size 4'
+let g:ale_cmake_cmakelint_options.=' --line-width 120'
 
 let g:ale_cmake_cmakeformat_executable='cmake-format'
 let g:ale_cmake_cmakeformat_options='--disable'
