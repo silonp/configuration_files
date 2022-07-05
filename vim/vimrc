@@ -227,7 +227,9 @@ let g:ale_cmake_cmakelint_options='--tab-size 4'
 let g:ale_cmake_cmakelint_options.=' --line-width 120'
 
 let g:ale_cmake_cmakeformat_executable='cmake-format'
-let g:ale_cmake_cmakeformat_options='--disable'
+let g:ale_cmake_cmakeformat_options=''
+let g:ale_cmake_cmakeformat_options.=' --tab-size 4'
+" let g:ale_cmake_cmakeformat_options.=' --disable'
 
 " Clangd is a LSP server:
 let g:ale_cpp_clangd_executable='clangd-15'
