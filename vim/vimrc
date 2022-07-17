@@ -131,10 +131,8 @@ set path+=~/comboard/**
 
 " Where not to look for files:
 set wildignore+=**/build/**
+set wildignore+=**/build_*/**
 set wildignore+=**/tmp/**
-set wildignore+=**/build_test/**
-set wildignore+=**/build_unittest/**
-set wildignore+=**/build_unittests/**
 
 " Default to not read-only in vimdiff.
 set noro
@@ -205,7 +203,7 @@ set omnifunc=ale#completion#OmniFunc
 
 " A list of directory names to be used when searching upwards from cpp files
 " to discover compilation databases with (compile_commands.json).
-let g:ale_c_build_dir_names=['build', 'build_test', 'build_unittest', 'build_unittests']
+let g:ale_c_build_dir_names=['build', 'build_test', 'build_unittest', 'build_unittests', 'build_ScriptingService']
 
 let g:ale_python_flake8_options='--max-line-length 120'
 let g:ale_python_autopep8_options='--max-line-length 120'
