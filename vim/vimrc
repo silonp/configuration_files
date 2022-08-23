@@ -134,6 +134,11 @@ set wildignore+=**/build/**
 set wildignore+=**/build_*/**
 set wildignore+=**/tmp/**
 
+" Specific for EB Corbos projects:
+set wildignore+=**/install/**
+set wildignore+=**/rootfs/**
+set wildignore+=**/studio/**
+
 " Default to not read-only in vimdiff.
 set noro
 
