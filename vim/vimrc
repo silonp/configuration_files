@@ -5,6 +5,7 @@ set nocompatible
 filetype off
 
 " Load plugins here [VIM < 8] (pathogen or vundle):
+packadd termdebug
 
 " Turn on syntax highlighting.
 syntax on
