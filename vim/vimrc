@@ -139,6 +139,7 @@ set wildignore+=**/tmp/**
 set wildignore+=**/install/**
 set wildignore+=**/rootfs/**
 set wildignore+=**/studio/**
+set wildignore+=**/Unit_Test/**
 
 " Default to not read-only in vimdiff.
 set noro
