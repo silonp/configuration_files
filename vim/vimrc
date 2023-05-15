@@ -243,7 +243,7 @@ let g:ale_cmake_cmakeformat_options.=' --disable'
 let g:ale_cpp_clangd_executable='clangd-15'
 
 " Indexing options:
-" let g:ale_cpp_clangd_options='--query-driver=/home/dev/ara/eb/adaptivecore/sdk/custom/qemu-arm64/2.9.0/sysroots/x86_64-wrlinuxsdk-linux/usr/bin/aarch64-wrs-linux/aarch64-wrs-linux-g++'
+" let g:ale_cpp_clangd_options='--query-driver=/home/dev/ara/eb/adaptivecore/sdk/custom/qemu-arm64/2.11.0-20-11/sysroots/x86_64-wrlinuxsdk-linux/usr/bin/aarch64-wrs-linux/aarch64-wrs-linux-g++'
 let g:ale_cpp_clangd_options='--query-driver=/home/dev/ara/eb/adaptivecore/sdk/eblinux/qemu-x86/2.11.0-20-11/sysroots/x86_64-pokysdk-linux/usr/bin/x86_64-poky-linux/x86_64-poky-linux-g++'
 let g:ale_cpp_clangd_options.=' --background-index'
 let g:ale_cpp_clangd_options.=' --completion-style=detailed'
