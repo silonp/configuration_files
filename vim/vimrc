@@ -214,6 +214,7 @@ let g:ale_c_build_dir_names=['build', 'build_test', 'build_unittest', 'build_uni
 
 let g:ale_python_flake8_options='--max-line-length 120'
 let g:ale_python_autopep8_options='--max-line-length 120'
+let g:ale_python_autopep8_use_global=1
 
 let g:ale_c_parse_compile_commands=1
 let g:ale_c_parse_makefile=0
