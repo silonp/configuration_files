@@ -133,6 +133,7 @@ set path+=~/comboard/**
 " Where not to look for files:
 set wildignore+=**/build/**
 set wildignore+=**/build_*/**
+set wildignore+=**/.venv/**
 set wildignore+=**/tmp/**
 
 " Specific for EB Corbos projects:
