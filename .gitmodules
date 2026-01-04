@@ -1,22 +1,22 @@
 [submodule "vim/vim/pack/NERDTree/start/NERDTree"]
 	path = vim/vim/pack/NERDTree/start/NERDTree
-	url = git@github.com:preservim/nerdtree.git
+	url = https://github.com/preservim/nerdtree.git
 [submodule "vim/vim/pack/vim-bitbake/start/vim-bitbake"]
 	path = vim/vim/pack/vim-bitbake/start/vim-bitbake
-	url = git@github.com:kergoth/vim-bitbake.git
+	url = https://github.com/kergoth/vim-bitbake.git
 [submodule "vim/vim/pack/gruvbox/start/gruvbox"]
 	path = vim/vim/pack/gruvbox/start/gruvbox
-	url = git@github.com:morhetz/gruvbox.git
+	url = https://github.com/morhetz/gruvbox.git
 [submodule "vim/vim/pack/ctrlp/start/ctrlp"]
 	path = vim/vim/pack/ctrlp/start/ctrlp
-	url = git@github.com:ctrlpvim/ctrlp.vim.git
+	url = https://github.com/ctrlpvim/ctrlp.vim.git
 	ignore = dirty
 [submodule "vim/vim/pack/ale/start/ale"]
 	path = vim/vim/pack/ale/start/ale
-	url = git@github.com:dense-analysis/ale.git
+	url = https://github.com/dense-analysis/ale.git
 [submodule "vim/vim/pack/headerguard/start/headerguard"]
 	path = vim/vim/pack/headerguard/start/headerguard
-	url = git@github.com:drmikehenry/vim-headerguard.git
+	url = https://github.com/drmikehenry/vim-headerguard.git
 [submodule "vim/vim/pack/vim-markdown-toc/start/vim-markdown-toc"]
 	path = vim/vim/pack/vim-markdown-toc/start/vim-markdown-toc
-	url = git@github.com:mzlogin/vim-markdown-toc.git
+	url = https://github.com/mzlogin/vim-markdown-toc.git
