@@ -17,9 +17,9 @@
     ci = commit
     co = checkout
     lg = log --color \
-             --graph \
-             --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%C(bold blue) (%an)%Creset' \
-             --abbrev-commit
+        --graph \
+        --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%C(bold blue) (%an)%Creset' \
+        --abbrev-commit
     df = diff
     st = status
 
@@ -33,14 +33,10 @@
     default = current
 
 [diff]
-    tool = vimdiff
+    tool = idea
 
 [difftool]
     prompt = false
 
-[merge]
-    tool = vimdiff
-
-[mergetool]
-    prompt = false
-    keepBackup = false
+[difftool "idea"]
+    cmd = ~/git-idea-diff.sh --wait "$LOCAL" "$REMOTE"
